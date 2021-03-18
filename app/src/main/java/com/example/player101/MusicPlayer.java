@@ -69,4 +69,16 @@ public class MusicPlayer implements MediaPlayer.OnCompletionListener {
         player= null;
         playMusic();
     }
+
+    public void nextSong(){
+        musicIndex++;
+        if(musicIndex == 3) musicIndex = 0;
+        playMusic();
+    }
+
+    public void prevSong(){
+        musicIndex--;
+        if(musicIndex == -1) musicIndex = 2;
+        playMusic();
+    }
 }

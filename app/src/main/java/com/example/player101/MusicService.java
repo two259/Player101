@@ -61,4 +61,13 @@ public class MusicService extends Service {
             return MusicService.this;
         }
     }
+
+    public void next(){
+        musicPlayer.nextSong();
+    }
+
+    public void prev()
+    {
+        musicPlayer.prevSong();
+    }
 }

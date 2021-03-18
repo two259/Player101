@@ -50,21 +50,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (isBound) {
-            switch (musicService.getPlayingStatus()){
-                case 0:
-                    musicService.startMusic();
-                    play.setText("Pause");
-                    break;
-                case 1:
-                    musicService.pauseMusic();
-                    play.setText("Resume");
-                    break;
-                case 2:
-                    musicService.resumeMusic();
-                    play.setText("Pause");
-                    break;
-            }
+        switch(view.getId()){
+            case R.id.play:
+                if (isBound) {
+                    switch (musicService.getPlayingStatus()){
+                        case 0:
+                            musicService.startMusic();
+                            play.setText("Pause");
+                            break;
+                        case 1:
+                            musicService.pauseMusic();
+                            play.setText("Resume");
+                            break;
+                        case 2:
+                            musicService.resumeMusic();
+                            play.setText("Pause");
+                            break;
+                    }
+                }
+            case R.id.next:
+                musicService.next();
+                break;
+
+            case R.id.prev:
+                musicService.prev();
+                break;
         }
     }
 
